@@ -1,0 +1,159 @@
+/* src/css/animations.css */
+
+/* Animação de Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animação para a imagem de perfil */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Classe para elementos que terão a animação ao aparecer */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Aplicações específicas */
+.hero-text h1,
+.hero-text .role,
+.hero-text .description,
+.hero-buttons .btn,
+.social-links a {
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.hero-text h1 {
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+.hero-text .role {
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+}
+
+.hero-text .description {
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+}
+
+.hero-buttons .btn-primary {
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.hero-buttons .btn-secondary {
+    animation: fadeInUp 0.8s ease-out 1s forwards;
+}
+
+.social-links a {
+    animation: fadeIn 0.8s ease-out forwards;
+    /* Delay escalonado para os ícones sociais */
+}
+
+.social-links a:nth-child(1) {
+    animation-delay: 1.2s;
+}
+.social-links a:nth-child(2) {
+    animation-delay: 1.4s;
+}
+
+.hero-image .profile-pic {
+    opacity: 0;
+    animation: scaleIn 0.8s ease-out 0.8s forwards;
+}
+
+/* Animação para cards de projetos */
+.project-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.project-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação para itens de experiência e educação */
+.experience-item,
+.education-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.experience-item.is-visible,
+.education-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação para categorias de habilidades */
+.skill-category {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.skill-category.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação para links de navegação e menu hamburger */
+.header .main-nav .nav-list li,
+.header .hamburger {
+    opacity: 0;
+    animation-fill-mode: both;
+}
+
+.header .main-nav .nav-list li:nth-child(1) {
+    animation: fadeIn 0.5s ease-out 0.2s forwards;
+}
+.header .main-nav .nav-list li:nth-child(2) {
+    animation: fadeIn 0.5s ease-out 0.3s forwards;
+}
+.header .main-nav .nav-list li:nth-child(3) {
+    animation: fadeIn 0.5s ease-out 0.4s forwards;
+}
+.header .main-nav .nav-list li:nth-child(4) {
+    animation: fadeIn 0.5s ease-out 0.5s forwards;
+}
+.header .main-nav .nav-list li:nth-child(5) {
+    animation: fadeIn 0.5s ease-out 0.6s forwards;
+}
+
+.header .hamburger {
+    animation: fadeIn 0.5s ease-out 0.7s forwards;
+}
