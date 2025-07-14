@@ -1,0 +1,143 @@
+/* --- Menu Hambúrguer Responsivo --- */
+
+/* Esconde o botão do hambúrguer por padrão em telas grandes */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Garante que fique acima de outros elementos */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color); /* Cor do hambúrguer */
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Ajustes no Header para o layout responsivo */
+/* Seu código CSS anterior... */
+
+/* --- Menu Hambúrguer Responsivo --- */
+
+/* Esconde o botão do hambúrguer por padrão em telas grandes */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002; /* Aumentado para garantir que fique acima do overlay */
+    position: relative; /* Para o X aparecer corretamente */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color); /* Cor do hambúrguer */
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* NOVO: Overlay para quando o menu estiver aberto */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
+    z-index: 999; /* Fica abaixo do menu e acima do conteúdo */
+    opacity: 0; /* Começa invisível */
+    visibility: hidden; /* Escondido por padrão */
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Ajustes no Header para o layout responsivo */
+@media (max-width: 992px) {
+    .header-content {
+        /* Se você tem um logo/título, ele pode ir à esquerda, e o hambúrguer à direita */
+        justify-content: space-between; 
+        padding: 0 20px;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -320px; /* Inicia fora da tela. Ajuste este valor para a largura do seu menu */
+        width: 300px; /* Largura fixa do menu lateral. Ou use 70vw para ser relativo à viewport */
+        max-width: 70%; /* Garante que não seja muito largo em telas pequenas */
+        height: 100vh;
+        background-color: var(--dark-color); /* Fundo do menu lateral */
+        padding: 80px 20px 20px; /* Padding para o conteúdo do menu */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        transition: right 0.4s ease-in-out;
+        z-index: 1001; /* Fica acima do overlay */
+        display: flex; /* Para centralizar o conteúdo do menu */
+        flex-direction: column;
+        align-items: flex-start; /* Alinha os itens do menu à esquerda, como na imagem */
+    }
+
+    .main-nav.active {
+        right: 0; /* Desliza para dentro da tela */
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px; /* Espaçamento entre os itens do menu */
+        text-align: left; /* Alinha o texto da lista à esquerda */
+    }
+
+    .main-nav .nav-list a {
+        color: var(--heading-color);
+        font-size: 1.3rem;
+        padding: 10px 0;
+        display: block;
+    }
+
+    .main-nav .nav-list a::after {
+        background-color: var(--primary-color);
+        height: 3px;
+        left: 0; /* Garante que a linha de hover comece na esquerda */
+    }
+
+    .hamburger {
+        display: block; /* Mostra o botão do hambúrguer */
+        order: 2; /* Move o hambúrguer para a direita no flexbox do header */
+        margin-left: auto; /* Empurra o hambúrguer para a direita se houver logo */
+    }
+
+    /* Animação do ícone do hambúrguer - posicionamento do X */
+    .hamburger.active {
+        position: absolute; /* Altera para absoluto para posicionar dentro do nav aberto */
+        top: 20px; /* Distância do topo */
+        left: 20px; /* Distância da esquerda para parecer o "X" de fechar no menu */
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--heading-color); /* Altera a cor do X para ser visível no menu escuro */
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--heading-color); /* Altera a cor do X para ser visível no menu escuro */
+    }
+}

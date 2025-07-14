@@ -1,0 +1,164 @@
+/* Seu código de variáveis :root e estilos globais... */
+
+body {
+    /* ... (seu CSS existente para o body) ... */
+    overflow-x: hidden; /* Garante que não haja scroll horizontal indesejado */
+}
+
+/* NOVO: Estilo para impedir o scroll da página quando o menu está aberto */
+body.no-scroll {
+    overflow: hidden; /* Impede o scroll vertical */
+    position: fixed; /* Isso pode ajudar a evitar que o conteúdo "salte" */
+    width: 100%; /* Garante que a largura do body fixa seja 100% */
+}
+
+/* ... (seu CSS para a, ul, img, utilitários, h1-h3, highlight, btn, etc.) ... */
+
+
+/* Header - Certifique-se que o header tem um z-index adequado */
+.header {
+    /* ... (seu CSS existente para o header) ... */
+    z-index: 1000; /* Importante para que o header fixe fique visível sobre o conteúdo */
+}
+
+.header-content {
+    display: flex;
+    justify-content: flex-end; /* Ou space-between se tiver logo */
+    align-items: center;
+}
+
+/* NAVEGAÇÃO PRINCIPAL (PARA TELAS GRANDES) */
+.main-nav {
+    display: flex; /* Em telas grandes, a navegação é flex */
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+/* ... (seus estilos para .nav-list a e a::after para telas grandes) ... */
+
+
+/* --- Menu Hambúrguer Responsivo (OFF-CANVAS) --- */
+
+/* Hambúrguer Button */
+.hamburger {
+    display: none; /* Escondido por padrão em desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002; /* Sempre acima do menu e overlay */
+    position: relative; /* Para o X aparecer sem mudar a posição do botão */
+    /* Para a cor do hambúrguer no header */
+    color: var(--primary-color); 
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--primary-color); /* Cor das barras do hambúrguer */
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+/* Overlay para escurecer o fundo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999; /* Abaixo do menu, acima do conteúdo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Media Query para Telas Menores (Ativa o Hambúrguer) */
+@media (max-width: 992px) {
+    .header-content {
+        justify-content: space-between; /* Permite logo à esquerda, hambúrguer à direita */
+        padding: 0 20px;
+    }
+
+    /* Mostra o botão do hambúrguer */
+    .hamburger {
+        display: block;
+        order: 2; /* Garante que fique à direita no flexbox do header */
+    }
+
+    /* O menu de navegação se torna o "overlay lateral" */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -300px; /* Começa fora da tela, à direita (largura do menu) */
+        width: 300px; /* Largura do menu lateral. Ajuste conforme necessário. */
+        max-width: 80vw; /* Garante que não seja maior que 80% da viewport em telas super pequenas */
+        height: 100vh; /* Ocupa a altura total da tela */
+        background-color: var(--dark-color); /* Fundo do menu */
+        padding: 80px 20px 20px; /* Padding interno */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Sombra lateral */
+        transition: right 0.4s ease-in-out; /* Animação de deslizamento */
+        z-index: 1001; /* Fica acima do overlay */
+        display: flex; /* Para o layout dos itens do menu */
+        flex-direction: column;
+        align-items: flex-start; /* Alinha os itens do menu à esquerda */
+    }
+
+    .main-nav.active {
+        right: 0; /* Desliza para dentro da tela */
+    }
+
+    /* Lista de links dentro do menu lateral */
+    .main-nav .nav-list {
+        flex-direction: column;
+        width: 100%; /* Ocupa toda a largura do menu lateral */
+        gap: 15px; /* Espaçamento entre os links */
+        text-align: left; /* Alinha o texto dos links à esquerda */
+    }
+
+    .main-nav .nav-list a {
+        color: var(--heading-color); /* Cor dos links no menu lateral (claro) */
+        font-size: 1.3rem;
+        padding: 10px 0;
+        display: block; /* Para que ocupem toda a largura */
+    }
+
+    .main-nav .nav-list a::after {
+        background-color: var(--primary-color);
+        height: 3px;
+        left: 0;
+    }
+
+    /* Animação do ícone do hambúrguer para o "X" */
+    /* Estas transformações acontecem no próprio botão do hambúrguer que está no header,
+       não dentro do menu lateral. */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background-color: var(--heading-color); /* Muda a cor para ser visível se o header ficar escuro */
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background-color: var(--heading-color); /* Muda a cor */
+    }
+}
+
+/* ... (o resto do seu CSS para outras seções, projetos, contato, footer e outras media queries) ... */

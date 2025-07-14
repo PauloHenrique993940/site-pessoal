@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paulo Henrique - Desenvolvedor Web Front-End</title>
-    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/dark.css">
+    <link rel="stylesheet" href="./src/css/menuBar.css">
+    <link rel="stylesheet" href="./src/css/global.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -15,7 +17,7 @@
 <body>
     <header class="header">
         <div class="container header-content">
-            <nav class="main-nav">
+            <nav class="main-nav" id="main-nav">
                 <ul class="nav-list">
                     <li><a href="#sobre">Sobre Mim</a></li>
                     <li><a href="#habilidades">Habilidades</a></li>
@@ -24,6 +26,11 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </nav>
+            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
@@ -219,41 +226,52 @@
                     <div class="project-card">
                         <img src="./src/img/capas-project/efood.png" alt="Plataforma E-Food" class="project-card">
                         <h3>Plataforma E-Food</h3>
-                        <a  href="https://efood-seven-azure.vercel.app/" target="_blank" class="btn-project-link">VerProjeto <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://efood-seven-azure.vercel.app/" target="_blank"
+                            class="btn-project-link">VerProjeto <i class="fas fa-external-link-alt"></i></a>
                     </div>
 
                     <div class="project-card">
-                        <img src="./src/img/capas-project/eplay.png" alt="Plataforma de Vendas de Games EPLAY" class="project-card">
+                        <img src="./src/img/capas-project/eplay.png" alt="Plataforma de Vendas de Games EPLAY"
+                            class="project-card">
                         <h3>Plataforma de Vendas de Games EPLAY</h3>
-                        <a href="https://eplay-one.vercel.app/" target="_blank" class="btn-project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://eplay-one.vercel.app/" target="_blank" class="btn-project-link">Ver Projeto <i
+                                class="fas fa-external-link-alt"></i></a>
                     </div>
 
                     <div class="project-card">
                         <img src="./src/img/capas-project/ajax.png" alt="Sistema de Requisições" class="project-card">
                         <h3>Sistema de Requisições</h3>
-                        <a href="https://ajax-sable.vercel.app" target="_blank" class="btn-project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://ajax-sable.vercel.app" target="_blank" class="btn-project-link">Ver Projeto <i
+                                class="fas fa-external-link-alt"></i></a>
                     </div>
 
                     <div class="project-card">
-                        <img src="./src/img/capas-project/cafe-aroma.png" alt="Site Institucional de Restaurante – Café" class="project-card">
+                        <img src="./src/img/capas-project/cafe-aroma.png" alt="Site Institucional de Restaurante – Café"
+                            class="project-card">
                         <h3>Site Institucional Café Aroma</h3>
-                        <a href="https://cafe-aroma-preto-2t3me1rxy-paulohenrique537s-projects.vercel.app/" target="_blank" class="btn-project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
+                        <a href="https://cafe-aroma-preto-2t3me1rxy-paulohenrique537s-projects.vercel.app/"
+                            target="_blank" class="btn-project-link">Ver Projeto <i
+                                class="fas fa-external-link-alt"></i></a>
                     </div>
 
                     <div class="project-card">
-                        <img src="./src/img/capas-project/evento.png" alt="Página de Evento de Tecnologia" class="project-card">
+                        <img src="./src/img/capas-project/evento.png" alt="Página de Evento de Tecnologia"
+                            class="project-card">
                         <h3>Página de Evento de Tecnologia</h3>
                         <a href="https://evento-mauve-one.vercel.app/" target="_blank" class="btn-project-link">Ver
                             Projeto <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="project-card">
-                        <img src="./src/img/capas-project/restaurante.png" alt="Página de Evento de Tecnologia" class="project-card">
+                        <img src="./src/img/capas-project/restaurante.png" alt="Página de Evento de Tecnologia"
+                            class="project-card">
                         <h3>Restaurante</h3>
-                        <a href="https://restaurante-peach-alpha.vercel.app/" target="_blank" class="btn-project-link">Ver
+                        <a href="https://restaurante-peach-alpha.vercel.app/" target="_blank"
+                            class="btn-project-link">Ver
                             Projeto <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <div class="project-card">
-                        <img src="./src/img/capas-project/disney.png" alt="Página de Evento de Tecnologia" class="project-card">
+                        <img src="./src/img/capas-project/disney.png" alt="Página de Evento de Tecnologia"
+                            class="project-card">
                         <h3>Disney+</h3>
                         <a href="https://clone-lime-iota.vercel.app/" target="_blank" class="btn-project-link">Ver
                             Projeto <i class="fas fa-external-link-alt"></i></a>
@@ -271,8 +289,9 @@
                     <p><i class="fas fa-envelope"></i> E-mail: <a
                             href="mailto:paulohenriqueferreirafranca2@gmail.com">paulohenriqueferreirafranca2@gmail.com</a>
                     </p>
-                    <p><i class="fab fa-linkedin"></i> LinkedIn: <a href="https://www.linkedin.com/in/paulohenriquefranca/"
-                            target="_blank">Paulo Henrique</a></p>
+                    <p><i class="fab fa-linkedin"></i> LinkedIn: <a
+                            href="https://www.linkedin.com/in/paulohenriquefranca/" target="_blank">Paulo Henrique</a>
+                    </p>
                     <p><i class="fab fa-github"></i> GitHub: <a href="https://github.com/PauloHenrique993940"
                             target="_blank">Paulo Henrique GitHub</a></p>
                 </div>
@@ -287,6 +306,25 @@
     </footer>
 
     <script src="./js/script.js"></script>
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('main-nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            // Opcional: impede o scroll da página quando o menu está aberto
+            document.body.classList.toggle('no-scroll');
+        });
+
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+    </script>
 </body>
 
 </html>
